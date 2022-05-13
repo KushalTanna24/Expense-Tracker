@@ -4,7 +4,7 @@ import "./Expenses.css";
 import ExpenseTacker from "./ExpenseTacker";
 import ExpensesFilter from "./Filter/ExpensesFilter";
 
-const Expense = (props) => {
+const Expenses = (props) => {
   const [selectedYear, setSelectedYear] = useState("2020");
 
   const yearFilterHandler = (selectedYear) => {
@@ -19,29 +19,16 @@ const Expense = (props) => {
           onFilterHandler={yearFilterHandler}
           selected={selectedYear}
         />
-        <ExpenseTacker
-          title={props.expenses[0].title}
-          amount={props.expenses[0].amount}
-          date={props.expenses[0].date}
-        />
-        <ExpenseTacker
-          title={props.expenses[1].title}
-          amount={props.expenses[1].amount}
-          date={props.expenses[1].date}
-        />
-        <ExpenseTacker
-          title={props.expenses[2].title}
-          amount={props.expenses[2].amount}
-          date={props.expenses[2].date}
-        />
-        <ExpenseTacker
-          title={props.expenses[3].title}
-          amount={props.expenses[3].amount}
-          date={props.expenses[3].date}
-        />
+        {props.expenses.map((expense) => (
+          <ExpenseTacker
+            title={expense.title}
+            amount={expense.amount}
+            date={expense.date}
+          />
+        ))}
       </Card>
     </div>
   );
 };
 
-export default Expense;
+export default Expenses;

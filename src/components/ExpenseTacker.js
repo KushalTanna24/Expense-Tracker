@@ -5,7 +5,6 @@ import ExpenseDate from "./ExpenseDate";
 
 const ExpenseTacker = (props) => {
   const [title, setTitle] = useState(props.title);
-
   const clickHandler = () => {
     setTitle("Changed Title");
     console.log(title);
