@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import ExpenseItem from "./ExpenseItem";
 import ExpensesFilter from "./ExpensesFilter";
 import Card from "../UI/Card";
+import ExpensesChart from "./ExpenseChart";
 import "./ExpensesLists.css";
 
 const Expenses = (props) => {
@@ -29,6 +30,7 @@ const Expenses = (props) => {
           onChangeFilter={filterChangeHandler}
           selected={filteredYear}
         />
+        <ExpensesChart expenses={filteredExpense} />
         {filteredExpense.length === 0 ? (
           <p className="expenses-list__fallback">No Expenses Found</p>
         ) : (
